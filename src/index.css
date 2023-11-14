@@ -4,6 +4,7 @@
   font-family: "Raleway", sans-serif;
   line-height: 1.5;
   font-weight: 400;
+<<<<<<< HEAD
 }
 
 * {
@@ -21,6 +22,18 @@ body {
   min-height: 100vh;
   overflow-y: hidden;
   height: 100%;
+  display: grid;
+  place-items: center;
+=======
+
+  color-scheme: light dark;
+  color: #0b0b0b;
+  background-color: #242424;
+>>>>>>> 23c13cde7ab5454e827d044fd7145ecd68426fc8
+}
+
+body {
+  min-height: 100vh;
   display: grid;
   place-items: center;
 }

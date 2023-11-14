@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import QuoteBox from "./features/QuoteBox";
 import getRandomColor from "./util/getRandomColor";
@@ -21,6 +22,15 @@ function App() {
       </div>{" "}
       <Footer />
     </>
+=======
+import QuoteBox from "./features/QuoteBox";
+
+function App() {
+  return (
+    <div style={{ maxWidth: "550px", backgroundColor: "#fff" }}>
+      <QuoteBox />
+    </div>
+>>>>>>> 23c13cde7ab5454e827d044fd7145ecd68426fc8
   );
 }
 
