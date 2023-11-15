@@ -23,9 +23,8 @@ svg {
 }
 
 body {
-  min-height: 100vh;
   overflow-y: hidden;
-  height: 100%;
+  min-height: 100vh;
   display: grid;
   place-items: center;
 }
