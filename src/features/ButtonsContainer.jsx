@@ -1,4 +1,26 @@
-import twitter from "../assets/twitter.svg";
+import styled from "styled-components";
+
+const transition = "all 1.5s";
+
+const Link = styled.a`
+  background-color: ${(prop) => prop.color};
+  color: #fff;
+  border-radius: 5px;
+  padding: 0.35em 0.25em;
+  transition: ${transition};
+`;
+
+const QuoteButton = styled.button`
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  background-color: ${(prop) => prop.color};
+  color: #fff;
+  padding: 0 1.6em;
+  margin-left: auto;
+  border-radius: 5px;
+  transition: ${transition};
+`;
 
 function ButtonsContainer({ onHandleChangeQuote, color, onGetRandomColor }) {
   function handleClick() {
@@ -9,39 +31,23 @@ function ButtonsContainer({ onHandleChangeQuote, color, onGetRandomColor }) {
   return (
     <div style={{ display: "flex" }}>
       <div style={{ display: "flex", gap: "1rem" }}>
-        <a
+        <Link
           id="tweet-quote"
-          style={{
-            backgroundColor: color,
-            color: "#fff",
-            borderRadius: "5px",
-            padding: ".55em .55em",
-            transition: "all 1s",
-          }}
+          color={color}
           href="twitter.com/intent/tweet"
           target="_blank"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"
-            height="32"
+            height="20"
             viewBox="0 0 24 24"
             fill="#fff"
           >
             <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
           </svg>
-        </a>
-        <a
-          style={{
-            backgroundColor: color,
-            color: "#fff",
-            borderRadius: "5px",
-            padding: ".55em .55em",
-            transition: "all 1s",
-          }}
-          href="#"
-          target="_blank"
-        >
+        </Link>
+        <Link color={color} href="#" target="_blank">
           <svg
             fill="#fff"
             height="30px"
@@ -64,24 +70,11 @@ function ButtonsContainer({ onHandleChangeQuote, color, onGetRandomColor }) {
 	C213.484,200.108,212.476,198.418,210.857,197.545z"
             />
           </svg>
-        </a>
+        </Link>
       </div>
-      <button
-        id="new-quote"
-        onClick={onHandleChangeQuote}
-        style={{
-          border: "none",
-          fontFamily: "inherit",
-          backgroundColor: color,
-          color: "#fff",
-          padding: "0 1.6em",
-          marginLeft: "auto",
-          borderRadius: "5px",
-          transition: "all 1s",
-        }}
-      >
+      <QuoteButton color={color} id="new-quote" onClick={onHandleChangeQuote}>
         New quote
-      </button>
+      </QuoteButton>
     </div>
   );
 }

@@ -1,8 +1,13 @@
-<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import QuoteBox from "./features/QuoteBox";
 import getRandomColor from "./util/getRandomColor";
 import Footer from "./features/Footer";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  max-width: 550px;
+  background-color: #fff;
+`;
 
 function App() {
   const [color, setColor] = useState(getRandomColor());
@@ -10,27 +15,18 @@ function App() {
   useEffect(
     function () {
       document.body.style.backgroundColor = `${color}`;
-      document.body.style.transition = "all 1s";
+      document.body.style.transition = "all 1.5s";
     },
     [color]
   );
 
   return (
     <>
-      <div style={{ maxWidth: "450px", backgroundColor: "#fff" }}>
+      <Wrapper>
         <QuoteBox onGetRandomColor={setColor} color={color} />
-      </div>{" "}
+      </Wrapper>{" "}
       <Footer />
     </>
-=======
-import QuoteBox from "./features/QuoteBox";
-
-function App() {
-  return (
-    <div style={{ maxWidth: "550px", backgroundColor: "#fff" }}>
-      <QuoteBox />
-    </div>
->>>>>>> 23c13cde7ab5454e827d044fd7145ecd68426fc8
   );
 }
 

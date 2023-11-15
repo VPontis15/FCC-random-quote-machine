@@ -1,10 +1,36 @@
 import ButtonsContainer from "./ButtonsContainer";
 import data from "../Data/data.json";
 import { useState } from "react";
-<<<<<<< HEAD
 import getRandomNumber from "../util/getRandomNumber";
 import getRandomColor from "../util/getRandomColor";
+import styled from "styled-components";
 const { quotes } = data;
+
+const transition = "all 1.5s";
+
+const Card = styled.div`
+  max-width: 100%;
+  padding: 2.5em 2.75em;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  transition: ${transition};
+`;
+
+const Quote = styled.span`
+  font-size: 1.75rem;
+  text-align: center;
+  color: ${(props) => props.color};
+  margin-bottom: 0.75rem;
+  transition: ${transition};
+`;
+
+const Author = styled.span`
+  text-align: right;
+  margin-bottom: 1.75rem;
+  color: ${(props) => props.color};
+  transition: ${transition};
+`;
 
 function QuoteBox({ color, onGetRandomColor }) {
   const [quote, setQuote] = useState(quotes[getRandomNumber(quotes.length)]);
@@ -15,68 +41,19 @@ function QuoteBox({ color, onGetRandomColor }) {
   }
 
   return (
-    <div
-      style={{
-        maxWidth: "100%",
-        padding: "2.5em 2.75em",
-        display: "flex",
-        flexDirection: "column",
-        fontWeight: "500",
-        transition: "all 1s",
-      }}
-      id="quote-box"
-    >
-      <span
-        id="text"
-        style={{
-          fontSize: "1.75rem",
-          transition: "all 1s",
-          textAlign: "center",
-          color: color,
-          marginBottom: ".75rem",
-        }}
-      >
+    <Card id="quote-box">
+      <Quote color={color} id="text">
         {quote.quote}
-      </span>
-      <span
-        id="author"
-        style={{
-          textAlign: "right",
-          marginBottom: "1.75rem",
-          color: color,
-          transition: "all 1s",
-        }}
-      >
+      </Quote>
+      <Author color={color} id="author">
         - {quote.author}
-      </span>
+      </Author>
       <ButtonsContainer
         onGetRandomColor={onGetRandomColor}
         color={color}
         onHandleChangeQuote={handleChangeQuote}
       />
-=======
-const { quotes } = data;
-
-function QuoteBox() {
-  const [quote, setQuote] = useState(quotes[1]);
-  console.log(quotes);
-  return (
-    <div
-      style={{
-        paddingBlock: "1em",
-        maxWidth: "100%",
-        padding: "1.5em",
-        display: "grid",
-      }}
-      id="quote-box"
-    >
-      <h2 style={{ maxWidth: "55ch", textAlign: "center" }}>{quote.quote}</h2>
-      <span style={{ textAlign: "right", marginBottom: "1.75rem" }}>
-        {quote.author}
-      </span>
-      <ButtonsContainer />
->>>>>>> 23c13cde7ab5454e827d044fd7145ecd68426fc8
-    </div>
+    </Card>
   );
 }
 
